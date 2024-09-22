@@ -5,6 +5,8 @@
   --sub-main-color: rgba(112, 52, 18, 0.72);
   --second-color: #fff;
   --sub-second-color: rgba(255, 255, 255, 0.72);
+  --project-transition: 0.3s ease-in-out;
+  --project-opacity: 0.7;
 }
 
 * {
@@ -14,6 +16,7 @@
 
 html {
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,7 +53,15 @@ a {
   font-size: 14px;
   line-height: 150%;
 
-  padding: 27px 0;
+  margin: 27px 0;
+
+  transition: var(--project-transition);
+  border-bottom: 3px transparent solid;
+}
+
+.header__list-item:hover {
+  opacity: var(--project-opacity);
+  border-color: var(--main-color);
 }
 
 /* Main */
@@ -112,13 +123,20 @@ a {
   display: flex;
   flex-direction: column;
   width: 312px;
+  border-radius: 8px;
 }
+
 .explore__card-img {
   border-radius: 8px;
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.12);
   margin-bottom: 32px;
   /* width: 312px; */
   height: 312px;
+  transition: var(--project-transition);
+}
+
+.explore__card:hover .explore__card-img {
+  scale: 1.1;
 }
 
 .explore__card_bigger img {
@@ -131,13 +149,32 @@ a {
   line-height: 120%;
   color: var(--main-color);
   padding-bottom: 11px;
+
+  transition: var(--project-transition);
 }
+
+.explore__card:hover .explore__card-title {
+  color: var(--sub-main-color);
+  opacity: var(--project-opacity);
+}
+
 .explore__card-subtitle {
   font-size: 12px;
   line-height: 150%;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+  padding-bottom: 5px;
+
   color: var(--sub-main-color);
+  transition: var(--project-transition);
+
+  border-bottom: 3px transparent solid;
+  border-radius: 5px;
+}
+
+.explore__card:hover .explore__card-subtitle {
+  border-bottom-color: var(--main-color);
+  opacity: var(--project-opacity);
 }
 
 /* Footer */
@@ -149,6 +186,11 @@ a {
 
 .footer a {
   color: var(--sub-second-color);
+  transition: var(--project-transition);
+}
+
+.footer a:hover {
+  opacity: var(--project-opacity);
 }
 
 /* Footer contacts */
@@ -172,13 +214,17 @@ a {
 
   padding-bottom: 148px;
 }
+
+.footer__title a {
+  text-decoration: 2px underline wavy;
+}
+
 .footer__contact-links {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 169px;
 }
-/* .footer__list {
-} */
+
 .footer__list-item {
   font-weight: 400;
   font-size: 16px;
